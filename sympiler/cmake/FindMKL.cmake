@@ -12,7 +12,7 @@
 #
 #  MKL_FOUND              System has MKL libraries and headers
 #  MKL_LIBRARIES          The MKL library
-#  MKL_INCLUDE_DIRS       The location of MKL headers
+#  MKL_INCLUDE_DIR       The location of MKL headers
 
 find_path(MKL_PERFIX
         NAMES include/mkl.h
@@ -89,12 +89,12 @@ else ()
     message(FATAL_ERROR "iomp5 library not found")
 endif ()
 
-find_path(MKL_INCLUDE_DIRS
+find_path(MKL_INCLUDE_DIR
         NAMES mkl.h
         HINTS ${MKL_PERFIX}/include ${HILTIDEPS}/include
         )
-if (MKL_INCLUDE_DIRS)
-    message(STATUS "Found mkl header at: ${MKL_INCLUDE_DIRS}")
+if (MKL_INCLUDE_DIR)
+    message(STATUS "Found mkl header at: ${MKL_INCLUDE_DIR}")
 else ()
     message(FATAL_ERROR "mkl header is not found")
 endif ()
@@ -113,7 +113,7 @@ find_package_handle_standard_args(MKL DEFAULT_MSG
         M
         DL
         MKL_BLACS_OPENMPI_LP64
-        MKL_INCLUDE_DIRS
+        MKL_INCLUDE_DIR
         )
 
 mark_as_advanced(
@@ -127,37 +127,14 @@ mark_as_advanced(
         M
         DL
         MKL_BLACS_OPENMPI_LP64
-        MKL_INCLUDE_DIRS
+        MKL_INCLUDE_DIR
 )
 
 
-IF (MKL_LIBRARIES AND MKL_INCLUDE_DIR)
-  SET(MKL_FOUND TRUE)
-ELSE (MKL_LIBRARIES AND MKL_INCLUDE_DIR)
-  if (MKL_LIBRARIES AND NOT MKL_INCLUDE_DIR)
-    MESSAGE(WARNING "MKL libraries files are found, but MKL header files are \
-      not. You can get them by `conda install mkl-include` if using conda (if \
-      it is missing, run `conda upgrade -n root conda` first), and \
-      `pip install mkl-devel` if using pip. If build fails with header files \
-      available in the system, please make sure that CMake will search the \
-      directory containing them, e.g., by setting CMAKE_INCLUDE_PATH.")
-  endif()
-  SET(MKL_FOUND FALSE)
-  SET(MKL_VERSION)  # clear MKL_VERSION
-ENDIF (MKL_LIBRARIES AND MKL_INCLUDE_DIR)
-
-# Standard termination
-IF(NOT MKL_FOUND AND MKL_FIND_REQUIRED)
-  MESSAGE(FATAL_ERROR "MKL library not found. Please specify library location \
-    by appending the root directory of the MKL installation to the environment variable CMAKE_PREFIX_PATH.")
-ENDIF(NOT MKL_FOUND AND MKL_FIND_REQUIRED)
-IF(NOT MKL_FIND_QUIETLY)
-  IF(MKL_FOUND)
-    MESSAGE(STATUS "MKL library found")
-  ELSE(MKL_FOUND)
-    MESSAGE(STATUS "MKL library not found")
-  ENDIF(MKL_FOUND)
-ENDIF(NOT MKL_FIND_QUIETLY)
-
-# Do nothing if MKL_FOUND was set before!
-ENDIF (NOT MKL_FOUND)
+if(MKL_LIBRARIES AND MKL_INCLUDE_DIR)
+  set(MKL_FOUND TRUE)
+  message(STATUS "MKL IS FOUND")
+else()
+  set(MKL_FOUND FALSE)
+  message(STATUS "MKL NOT FOUND")
+endif()

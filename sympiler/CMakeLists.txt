@@ -119,6 +119,7 @@ add_definitions(-DMETIS)
 find_package(MKL OPTIONAL_COMPONENTS)
 if(MKL_FOUND)
     add_definitions(-DMKL) # add openblas
+else()
     message(STATUS "Intel MKL not found, skipping supernodal Cholesky lib")
 endif()
 ### Find Intel MKL if available
@@ -212,8 +213,8 @@ set(ALL_SOURCE_FILES
         ${BLAS_SRC_FILES}
         ${METIS_SOURCE_FILES})
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}   -std=c++11 -w -m64")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}   -std=c++17 -w -m64")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=x86-64   -mavx2")
 
 Set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
