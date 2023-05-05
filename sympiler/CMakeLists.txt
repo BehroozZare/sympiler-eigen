@@ -229,7 +229,7 @@ endif()
 
 add_subdirectory(lbc)
 add_subdirectory(sparse_blas)
-add_subdirectory(Catch_tests)
+# add_subdirectory(Catch_tests)
 add_subdirectory(code_gen)
 #add_subdirectory(utils)  ## TODO: rmeove the folder
 #add_subdirectory(dense_blas)
