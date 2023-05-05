@@ -12,7 +12,7 @@ set(LBC_EXTERNAL ${CMAKE_CURRENT_LIST_DIR}/external)
 
 
 project(LBC_lib)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 #TODO: remove mmio and use the sparse_io in smp repo
 add_compile_options(-Wno-write-strings)

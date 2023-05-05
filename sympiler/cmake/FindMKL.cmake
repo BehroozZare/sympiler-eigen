@@ -12,7 +12,7 @@
 #
 #  MKL_FOUND              System has MKL libraries and headers
 #  MKL_LIBRARIES          The MKL library
-#  MKL_INCLUDE_DIR       The location of MKL headers
+#  MKL_INCLUDE_DIRS       The location of MKL headers
 
 find_path(MKL_PERFIX
         NAMES include/mkl.h
@@ -89,11 +89,11 @@ else ()
     message(FATAL_ERROR "iomp5 library not found")
 endif ()
 
-find_path(MKL_INCLUDE_DIR
+find_path(MKL_INCLUDE_DIRS
         NAMES mkl.h
         HINTS ${MKL_PERFIX}/include ${HILTIDEPS}/include
         )
-if (MKL_INCLUDE_DIR)
+if (MKL_INCLUDE_DIRS)
     message(STATUS "Found mkl header at: ${MKL_INCLUDE_DIR}")
 else ()
     message(FATAL_ERROR "mkl header is not found")
@@ -113,7 +113,7 @@ find_package_handle_standard_args(MKL DEFAULT_MSG
         M
         DL
         MKL_BLACS_OPENMPI_LP64
-        MKL_INCLUDE_DIR
+        MKL_INCLUDE_DIRS
         )
 
 mark_as_advanced(
@@ -127,11 +127,11 @@ mark_as_advanced(
         M
         DL
         MKL_BLACS_OPENMPI_LP64
-        MKL_INCLUDE_DIR
+        MKL_INCLUDE_DIRS
 )
 
 
-if(MKL_LIBRARIES AND MKL_INCLUDE_DIR)
+if(MKL_LIBRARIES AND MKL_INCLUDE_DIRS)
   set(MKL_FOUND TRUE)
   message(STATUS "MKL IS FOUND")
 else()

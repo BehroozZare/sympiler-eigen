@@ -185,7 +185,7 @@ endif()
 #endif()
 
 include_directories(
-        ${MKL_INCLUDE_DIR}
+        ${MKL_INCLUDE_DIRS}
         ${METIS_INCLUDE_DIR}
         ${METIS_INCLUDES}
         ${BLAS_INC}
