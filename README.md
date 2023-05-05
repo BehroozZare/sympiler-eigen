@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-![APM](https://badgen.net/github/license/micromatch/micromatch)
-
 # sympiler_eigen
 This repository provide an Eigen interface for 
 [Sympiler](https://github.com/sympiler/sympiler) and 
