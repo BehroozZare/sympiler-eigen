@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![APM](https://badgen.net/github/license/micromatch/micromatch)
 
 # sympiler_eigen
@@ -46,3 +47,7 @@ You can follow the [sympiler installation instructions](https://github.com/sympi
 
 
 
+=======
+# sympiler-eigen
+It is an updated version of sympiler-eigen compatible with the IPC code base that I am using.
+>>>>>>> origin/main
