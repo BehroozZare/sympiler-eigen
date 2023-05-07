@@ -6,8 +6,9 @@
 #define NASOQ_LBL_EIGEN_H
 
 #include  <parsy/cholesky_solver.h>
-#include <Eigen/Core>
 #include <Eigen/Sparse>
+#include <Eigen/Core>
+
 
 
  namespace sympiler

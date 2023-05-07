@@ -34,4 +34,5 @@
 # Directory 
 build/
 external/
+.vscode/
 
